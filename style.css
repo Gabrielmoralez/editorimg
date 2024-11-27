@@ -1,0 +1,309 @@
+/* Estilo básico */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased; /* Suaviza as fontes no Webkit */
+    -moz-osx-font-smoothing: grayscale; /* Suaviza as fontes no Firefox */
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 30px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border-bottom: 2px solid #444; /* Adiciona borda para um efeito de separação */
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Sombras sutis para o texto */
+}
+
+/* Botão de alternância de tema */
+.toggle-theme-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8em;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-theme-btn:hover {
+    transform: rotate(180deg);
+}
+
+/* Editor Container */
+.editor-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+/* Carregar Imagem */
+.image-upload {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+    position: relative;
+}
+
+.upload-label {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.upload-label:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+}
+
+.upload-input {
+    display: none;
+}
+
+/* Canvas de Edição */
+.image-editor {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    max-width: 800px;
+}
+
+/* Controles de Edição */
+.controls {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    gap: 20px;
+}
+
+.control-category {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.control-category h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.control-icon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.control-icon:hover {
+    transform: translateX(5px);
+}
+
+.control-icon i {
+    margin-right: 10px;
+    font-size: 1.3em;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.control-icon input {
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.control-icon input:hover {
+    background-color: #f0f0f0;
+}
+
+.control-category .control-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Modo Noturno */
+body.dark-mode {
+    background-color: #2C2C2C;
+    color: #fff;
+}
+
+body.dark-mode header {
+    background-color: #111;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .toggle-theme-btn {
+    color: #fff;
+}
+
+body.dark-mode .controls {
+    background-color: #444;
+    padding: 20px;
+}
+
+body.dark-mode .upload-label {
+    background-color: #555;
+}
+
+body.dark-mode .image-editor {
+    background-color: #333;
+}
+
+body.dark-mode footer {
+    background-color: #111;
+}
+
+/* Animações de Transição */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.editor-container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .editor-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .image-upload, .image-editor, .controls {
+        flex: 1 100%;
+        margin: 0;
+    }
+
+    .upload-label {
+        padding: 12px 25px;
+    }
+
+    .control-category h2 {
+        font-size: 1.2em;
+    }
+
+    .toggle-theme-btn {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .toggle-theme-btn {
+        font-size: 1.2em;
+    }
+
+    .control-category h2 {
+        font-size: 1.2em;
+    }
+}
+
+/* Efeitos de foco para inputs */
+.control-icon input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Adicionando sombras e efeitos para botões e controles */
+.control-category .control-icon i {
+    color: #333;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.control-category .control-icon i:hover {
+    color: #4CAF50;
+    transform: scale(1.2);
+}
+
+/* Novo: borda animada para inputs */
+.control-icon input:focus {
+    border-color: #2196F3;
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.6);
+}
+
+/* Melhorias adicionais para animação de hover */
+.upload-label:hover {
+    background-color: #45a049;
+    transform: translateY(-3px) scale(1.05);
+}
+
+.control-category .control-icon input {
+    transition: all 0.3s ease-in-out;
+    padding: 12px;
+    font-size: 1.1em;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.control-category .control-icon input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.5);
+}
